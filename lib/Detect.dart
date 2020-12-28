@@ -105,11 +105,12 @@ class _DetectMainState extends State<DetectMain> {
         child: Text("Could not recognize", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700)),
       );
     }
+    double confidence = _recognitions[0]['confidence']*100;
     return Padding(
       padding: EdgeInsets.fromLTRB(0,0,0,0),
       child: Center(
         child: Text(
-          "Prediction: "+_recognitions[0]['label'].toString().toUpperCase(),
+          "Prediction:"+confidence.toStringAsFixed(2)+"%"+_recognitions[0]['label'].toString(),
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
         ),
       ),
